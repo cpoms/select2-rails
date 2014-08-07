@@ -3345,7 +3345,11 @@ the specific language governing permissions and limitations under the Apache Lic
                 if (opts.element.get(0).tagName.toLowerCase() === "select") {
                     multiple = opts.element.prop("multiple");
                 } else {
-                    multiple = opts.multiple || false;
+                    if (typeof(opts.multiple) == "function") {
+                      multiple = opts.multiple(opts.element) || false;
+                    } else {
+                      multiple = opts.multiple || false;
+                    }
                     if ("tags" in opts) {opts.multiple = multiple = true;}
                 }
 
