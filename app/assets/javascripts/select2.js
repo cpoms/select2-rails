@@ -3353,6 +3353,10 @@ the specific language governing permissions and limitations under the Apache Lic
                     if ("tags" in opts) {opts.multiple = multiple = true;}
                 }
 
+                if (typeof(opts.allowClear) == "function") {
+                    opts.allowClear = opts.allowClear(opts.element) || false;
+                }
+
                 select2 = multiple ? new window.Select2["class"].multi() : new window.Select2["class"].single();
                 select2.init(opts);
             } else if (typeof(args[0]) === "string") {
