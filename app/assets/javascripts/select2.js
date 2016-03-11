@@ -481,7 +481,7 @@ the specific language governing permissions and limitations under the Apache Lic
             data = function() { return tmp; };
         }
 
-        var dataItem = data();
+        var dataItem = data(element);
         if (dataItem.text) {
             text = dataItem.text;
             // if text is not a function we assume it to be a key name
