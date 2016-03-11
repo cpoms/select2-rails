@@ -465,7 +465,7 @@ the specific language governing permissions and limitations under the Apache Lic
      * value of 'text' which will be used to match choices. Alternatively, text can be a function(item) that can extract
      * the text.
      */
-    function local(options) {
+    function local(options, element) {
         var data = options, // data elements
             dataText,
             tmp,
@@ -1039,7 +1039,7 @@ the specific language governing permissions and limitations under the Apache Lic
                         }
                         opts.query = ajax.call(opts.element, opts.ajax);
                     } else if ("data" in opts) {
-                        opts.query = local(opts.data);
+                        opts.query = local(opts.data, opts.element);
                     } else if ("tags" in opts) {
                         opts.query = tags(opts.tags);
                         if (opts.createSearchChoice === undefined) {
