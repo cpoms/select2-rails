@@ -494,7 +494,7 @@ the specific language governing permissions and limitations under the Apache Lic
         return function (query) {
             var t = query.term, filtered = { results: [] }, process;
             if (t === "") {
-                query.callback(data());
+                query.callback(data(element));
                 return;
             }
 
@@ -518,7 +518,7 @@ the specific language governing permissions and limitations under the Apache Lic
                 }
             };
 
-            $(data().results).each2(function(i, datum) { process(datum, filtered.results); });
+            $(data(element).results).each2(function(i, datum) { process(datum, filtered.results); });
             query.callback(filtered);
         };
     }
@@ -3212,7 +3212,7 @@ the specific language governing permissions and limitations under the Apache Lic
                     if (equal(this.opts.id(current[i]), this.opts.id(old[j]))) {
                         current.splice(i, 1);
                         if(i>0){
-                        	i--;
+                                i--;
                         }
                         old.splice(j, 1);
                         j--;
